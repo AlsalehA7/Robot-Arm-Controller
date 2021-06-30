@@ -1,5 +1,5 @@
 # Robot-Arm-Controller
-This is Task 1(Robot Arm Controller) in IoT path at Smart Methods summer training.
+This is Task 1(Robot Arm) in IoT path at Smart Methods summer training.
 
 The index.php file has the interface for the conroller made using bootstrap 4.  
 The interface has 6 motors each with a range of 180, an on/off switch to turn the motros on/off, and a save button that submits the changes into the database.  
