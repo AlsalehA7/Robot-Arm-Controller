@@ -3,7 +3,7 @@ This is Task 1 Robot Arm(submitted on 6/30) and Task 2 Robot Base(submitted on 7
 
 The index.php file has the interface for the conroller made using bootstrap 4.  
 The interface has 6 motors each with a range of 180, an on/off switch to turn the motros on/off, and a save button that submits the changes into the database.  
-And has 5 direction buttons that guides the robot, each time a direction button is pressed the data base gets updated.
+And has 5 direction buttons that guides the robot, each time a direction button is pressed the database gets updated.  
 At the beging of the file there's a php code that retrieves the values of the motors, the switch, and the active direction from the database and puts the values on the page.  
 
 The includes/connector.php file makes the connection to the database.  
