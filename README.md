@@ -16,5 +16,7 @@ The includes/save.php handles the submition of the values from the web page to t
 
 The includes/direction.php handles the submittion of the value of the active direction to the database.  
 
+controller.sql is the database used for the tasks.  
+
 - Abdullah Alsaleh
 - KFUPM ID: 201637180
