@@ -18,6 +18,21 @@
     if($row[0] == 1){
         $checked = 'checked';
     }
+
+    $stringF = "btn-secondary"; $stringR = "btn-secondary"; $stringB = "btn-secondary"; $stringL = "btn-secondary"; $stringS = "btn-secondary";
+    $sql = "SELECT * FROM base;";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result);
+    if($row[0] == 1)
+        $stringF = "btn-primary";
+    else if($row[1] == 1)
+        $stringR = "btn-primary";
+    else if($row[2] == 1)
+        $stringB = "btn-primary";
+    else if($row[3] == 1)
+        $stringL = "btn-primary";
+    else if($row[4] == 1)
+        $stringS = "btn-primary";
 ?>
 
 <!DOCTYPE html>
@@ -36,65 +51,85 @@
   <h1>Control Panel</h1>
 </div>
 
-<div class="container">
-    <form action="includes/save.php" method="POST">
-      <div class="row">
-        <div class="col-sm-4">
-          <h3>Motor 1</h3>
-          <div class="slidecontainer">
-            <input type="range" value="<?= $motors[0] ?>" min="0" max="180" oninput="this.nextElementSibling.value = this.value" name = "motor1">
-            <output><?= $motors[0] ?></output>
-          </div>
+<div>
+    <form action="includes/direction.php" method="POST">
+        <div class="text-center">
+            <button type="submit" class="btn <?= $stringF ?> m-3" name="forward">forward</button>
         </div>
-        <div class="col-sm-4">
-          <h3>Motor 2</h3>
-          <div class="slidecontainer">
-            <input type="range" value="<?= $motors[1] ?>" min="0" max="180" oninput="this.nextElementSibling.value = this.value" name = "motor2">
-            <output><?= $motors[1] ?></output>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <h3>Motor 3</h3>
-          <div class="slidecontainer">
-            <input type="range" value="<?= $motors[2] ?>" min="0" max="180" oninput="this.nextElementSibling.value = this.value" name = "motor3">
-            <output><?= $motors[2] ?></output>
-          </div>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-sm-4">
-          <h3>Motor 4</h3>
-          <div class="slidecontainer">
-            <input type="range" value="<?= $motors[3] ?>" min="0" max="180" oninput="this.nextElementSibling.value = this.value" name = "motor4">
-            <output><?= $motors[3] ?></output>
-          </div>
+        <div class="text-center">
+            <button type="submit" class="btn <?= $stringL ?> m-3" name="left">left</button>
+            <button type="submit" class="btn <?= $stringS ?> m-3" name="stop">stop</button>
+            <button type="submit" class="btn <?= $stringR ?> m-3" name="right">right</button>
         </div>
-        <div class="col-sm-4">
-          <h3>Motor 5</h3>
-          <div class="slidecontainer">
-            <input type="range" value="<?= $motors[4] ?>" min="0" max="180" oninput="this.nextElementSibling.value = this.value" name = "motor5">
-            <output><?= $motors[4] ?></output>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <h3>Motor 6</h3>
-          <div class="slidecontainer">
-            <input type="range" value="<?= $motors[5] ?>" min="0" max="180" oninput="this.nextElementSibling.value = this.value" name = "motor6">
-            <output><?= $motors[5] ?></output>
-          </div>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-sm-6">
-          <input type="checkbox" <?= $checked ?> data-toggle="toggle" data-size="sm" name="status">
+        <div class="text-center">
+            <button type="submit" class="btn <?= $stringB ?> m-3" name="backward">backward</button>
         </div>
-        <div class="col-sm-6 m-10">
-          <button type="submit" class="btn btn-primary float-sm-right"">Save</button>
-        </div>
-      </div>
     </form>
+</div>
+
+<div class="mt-4 jumbotron">
+    <div class="container">
+        <form action="includes/save.php" method="POST">
+          <div class="row">
+            <div class="col-sm-4">
+              <h3>Motor 1</h3>
+              <div class="slidecontainer">
+                <input type="range" value="<?= $motors[0] ?>" min="0" max="180" oninput="this.nextElementSibling.value = this.value" name = "motor1">
+                <output><?= $motors[0] ?></output>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <h3>Motor 2</h3>
+              <div class="slidecontainer">
+                <input type="range" value="<?= $motors[1] ?>" min="0" max="180" oninput="this.nextElementSibling.value = this.value" name = "motor2">
+                <output><?= $motors[1] ?></output>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <h3>Motor 3</h3>
+              <div class="slidecontainer">
+                <input type="range" value="<?= $motors[2] ?>" min="0" max="180" oninput="this.nextElementSibling.value = this.value" name = "motor3">
+                <output><?= $motors[2] ?></output>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4">
+              <h3>Motor 4</h3>
+              <div class="slidecontainer">
+                <input type="range" value="<?= $motors[3] ?>" min="0" max="180" oninput="this.nextElementSibling.value = this.value" name = "motor4">
+                <output><?= $motors[3] ?></output>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <h3>Motor 5</h3>
+              <div class="slidecontainer">
+                <input type="range" value="<?= $motors[4] ?>" min="0" max="180" oninput="this.nextElementSibling.value = this.value" name = "motor5">
+                <output><?= $motors[4] ?></output>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <h3>Motor 6</h3>
+              <div class="slidecontainer">
+                <input type="range" value="<?= $motors[5] ?>" min="0" max="180" oninput="this.nextElementSibling.value = this.value" name = "motor6">
+                <output><?= $motors[5] ?></output>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <input type="checkbox" <?= $checked ?> data-toggle="toggle" data-size="sm" name="status">
+            </div>
+            <div class="col-sm-6 m-10">
+              <button type="submit" class="btn btn-primary float-sm-right">Save</button>
+            </div>
+          </div>
+        </form>
+    </div>
 </div>
 
 </body>
