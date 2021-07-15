@@ -1,0 +1,502 @@
+{
+  "intents": [
+    {
+      "intent": "Farewell",
+      "examples": [
+        {
+          "text": "bye"
+        },
+        {
+          "text": "goodbye"
+        },
+        {
+          "text": "see you"
+        },
+        {
+          "text": "that's it"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Greeting",
+      "examples": [
+        {
+          "text": "aloha"
+        },
+        {
+          "text": "greetings"
+        },
+        {
+          "text": "Hello"
+        },
+        {
+          "text": "hey"
+        },
+        {
+          "text": "he yo"
+        },
+        {
+          "text": "hi"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Help",
+      "examples": [
+        {
+          "text": "ask me"
+        },
+        {
+          "text": "features"
+        },
+        {
+          "text": "help"
+        },
+        {
+          "text": "how can you help me?"
+        },
+        {
+          "text": "what can you do?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "How",
+      "examples": [
+        {
+          "text": "how"
+        },
+        {
+          "text": "How to use this website?"
+        },
+        {
+          "text": "use"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Languages",
+      "examples": [
+        {
+          "text": "CSS"
+        },
+        {
+          "text": "HTML"
+        },
+        {
+          "text": "Java Script"
+        },
+        {
+          "text": "languages"
+        },
+        {
+          "text": "mysql"
+        },
+        {
+          "text": "PHP"
+        },
+        {
+          "text": "sql"
+        },
+        {
+          "text": "what languages does this site use?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Thanks",
+      "examples": [
+        {
+          "text": "thanks"
+        },
+        {
+          "text": "thank you"
+        },
+        {
+          "text": "thx"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "What",
+      "examples": [
+        {
+          "text": "what"
+        },
+        {
+          "text": "What does this website do?"
+        },
+        {
+          "text": "what's the use"
+        },
+        {
+          "text": "why"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "Languages",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "CSS",
+          "synonyms": [
+            "Styling"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "HTML",
+          "synonyms": [
+            "Web development "
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Java Script",
+          "synonyms": [
+            "JS"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "MySQL",
+          "synonyms": [
+            "SQL"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "PHP",
+          "synonyms": [
+            "Web development "
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-date",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-time",
+      "values": [],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sorry, I didn't catch that."
+              },
+              {
+                "text": "Whoops, didn't get that one."
+              },
+              {
+                "text": "Flew over my head, didn't quite get it."
+              },
+              {
+                "text": "Can you repeat that please?"
+              },
+              {
+                "text": "They didn't teach me this one i guess :/"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_9_1626347774867"
+      },
+      "conditions": "anything_else",
+      "dialog_node": "node_1_1626350854821",
+      "previous_sibling": "node_9_1626350984711"
+    },
+    {
+      "type": "standard",
+      "title": "Languages",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "This website was made using HTML, Bootstrap 4, PHP, and MySQL."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_9_1626347774867"
+      },
+      "conditions": "@Languages || #Languages",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_5_1626348378175",
+      "previous_sibling": "node_7_1626350091623"
+    },
+    {
+      "type": "standard",
+      "title": "How to use?",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "On the top there's a movment controller that directs the robot on whatever direction you choose, and under that there's a motor controller that set the angel of each motor."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_9_1626347774867"
+      },
+      "conditions": "#How",
+      "dialog_node": "node_6_1626350089342",
+      "previous_sibling": "node_9_1626347774867"
+    },
+    {
+      "type": "standard",
+      "title": "What for?",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "This website acts as a controller for a fighting robot."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_9_1626347774867"
+      },
+      "conditions": "#What",
+      "dialog_node": "node_7_1626350091623",
+      "previous_sibling": "node_6_1626350089342"
+    },
+    {
+      "type": "standard",
+      "title": "Thanks",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You're welcome!"
+              },
+              {
+                "text": "My pleasure."
+              },
+              {
+                "text": "No worries!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_9_1626350984711"
+      },
+      "conditions": "#Thanks",
+      "dialog_node": "node_8_1626351161673",
+      "previous_sibling": "node_5_1626348378175"
+    },
+    {
+      "type": "standard",
+      "title": "Help",
+      "output": {
+        "generic": [
+          {
+            "title": "What would you like to know?",
+            "options": [
+              {
+                "label": "What does this website do?",
+                "value": {
+                  "input": {
+                    "text": "What does this website do?"
+                  }
+                }
+              },
+              {
+                "label": "How to use this website?",
+                "value": {
+                  "input": {
+                    "text": "How to use this website?"
+                  }
+                }
+              },
+              {
+                "label": "What languages does the website use?",
+                "value": {
+                  "input": {
+                    "text": "What languages does the website use?"
+                  }
+                }
+              }
+            ],
+            "description": "",
+            "response_type": "option"
+          }
+        ]
+      },
+      "conditions": "#Help",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_9_1626347774867",
+      "previous_sibling": "node_9_1626350617704"
+    },
+    {
+      "type": "standard",
+      "title": "Greeting",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello!"
+              },
+              {
+                "text": "Hi!"
+              },
+              {
+                "text": "Hey!"
+              },
+              {
+                "text": "Howdy!"
+              },
+              {
+                "text": "Hello there!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_9_1626347774867"
+      },
+      "conditions": "#Greeting",
+      "dialog_node": "node_9_1626350617704",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Farewell ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "See you later!"
+              },
+              {
+                "text": "good bye!"
+              },
+              {
+                "text": "Farewell!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Farewell",
+      "dialog_node": "node_9_1626350984711",
+      "previous_sibling": "node_8_1626351161673"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Welcome!"
+              },
+              {
+                "text": "Greetings!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "Speech",
+  "language": "en",
+  "description": ""
+}
