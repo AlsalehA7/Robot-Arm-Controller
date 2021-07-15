@@ -1,5 +1,5 @@
 # Robot-Controller-and-Assistant 
-This is Task 1 Robot Arm(submitted on 6/30), Task 2 Robot Base(submitted on 7/8), and Task 3 IBM Watson(submitted on 7/15)  in IoT path at Smart Methods summer training.
+This repository contains Task 1 Robot Arm(submitted on 6/30), Task 2 Robot Base(submitted on 7/8), and Task 3 IBM Watson(submitted on 7/15)  in IoT path at Smart Methods summer training.  
 
 The index.php file has the interface for the conroller made using bootstrap 4.  
 The interface has 6 motors each with a range of 180, an on/off switch to turn the motros on/off, and a save button that submits the changes into the database.  
