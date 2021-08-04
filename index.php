@@ -134,9 +134,9 @@
     
 <script>
   window.watsonAssistantChatOptions = {
-      integrationID: "f92df448-992e-47a4-8e91-fb4e1e90493d", // The ID of this integration.
-      region: "eu-gb", // The region your integration is hosted in.
-      serviceInstanceID: "1e158e47-dbc9-4339-a4d4-37c79f09ab13", // The ID of your service instance.
+      integrationID: "0071232a-86db-410e-836f-41f5a7de2fa4", // The ID of this integration.
+      region: "us-east", // The region your integration is hosted in.
+      serviceInstanceID: "345031a8-4aa0-4db3-8b8b-a5cac6f6214a", // The ID of your service instance.
       onLoad: function(instance) { instance.render(); }
     };
   setTimeout(function(){
